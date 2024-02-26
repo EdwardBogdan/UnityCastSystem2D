@@ -1,5 +1,4 @@
 using UnityEditor;
-using CastSystem2D;
 
 namespace CastSystem2D.Editors
 {
@@ -23,7 +22,7 @@ namespace CastSystem2D.Editors
             _onlyFirstCollected = serializedObject.FindProperty("_onlyFirstCollected");
             _useByCombinator = serializedObject.FindProperty("_useByCombinator");
             _tagFilter = serializedObject.FindProperty("_tagFilter");
-            _tag = serializedObject.FindProperty("_tag");
+            _tag = serializedObject.FindProperty("_tags");
             _layer = serializedObject.FindProperty("_layer");
             _color = serializedObject.FindProperty("_color");
             _checkRadius = serializedObject.FindProperty("_checkRadius");

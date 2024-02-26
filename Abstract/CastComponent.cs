@@ -8,7 +8,7 @@ namespace CastSystem2D.Abstract
     {
         [SerializeField] protected Color _color = new(0f,1f,0f,1f);
 
-        [SerializeField] protected string _tag;
+        [SerializeField] protected string[] _tags;
 
         [SerializeField] internal bool _useByCombinator;
         [SerializeField] protected bool _tagFilter;
@@ -38,9 +38,16 @@ namespace CastSystem2D.Abstract
 
             if (_tagFilter)
             {
-                filteredColliders = filteredColliders.Where(item => item.gameObject.CompareTag(_tag));
+                filteredColliders = filteredColliders.Where(item => {
+                    foreach (string tag in _tags)
+                    {
+                        if (item.gameObject.CompareTag(tag))
+                            return true;
+                    }
+                    return false;
+                });
 
-                list = filteredColliders.ToList();
+                list.AddRange(filteredColliders);
             }
             else
             {
